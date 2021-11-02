@@ -1,0 +1,72 @@
+[
+  {
+    "name": "register",
+    "path": "/register",
+    "component": "/Users/erdalyenigul/Desktop/index/personal/privatefriend/pages/register.vue",
+    "chunkName": "pages/register",
+    "_name": "_37347f79"
+  },
+  {
+    "name": "account-edit",
+    "path": "/account/edit",
+    "component": "/Users/erdalyenigul/Desktop/index/personal/privatefriend/pages/account/edit.vue",
+    "chunkName": "pages/account/edit",
+    "_name": "_7cc69e02"
+  },
+  {
+    "name": "account-myMessages",
+    "path": "/account/myMessages",
+    "component": "/Users/erdalyenigul/Desktop/index/personal/privatefriend/pages/account/myMessages.vue",
+    "chunkName": "pages/account/myMessages",
+    "_name": "_09148fe0"
+  },
+  {
+    "name": "account-photos",
+    "path": "/account/photos",
+    "component": "/Users/erdalyenigul/Desktop/index/personal/privatefriend/pages/account/photos.vue",
+    "chunkName": "pages/account/photos",
+    "_name": "_13b88cf9"
+  },
+  {
+    "name": "account-profile",
+    "path": "/account/profile",
+    "component": "/Users/erdalyenigul/Desktop/index/personal/privatefriend/pages/account/profile.vue",
+    "chunkName": "pages/account/profile",
+    "_name": "_0d13dd3e"
+  },
+  {
+    "name": "users-list",
+    "path": "/users/list",
+    "component": "/Users/erdalyenigul/Desktop/index/personal/privatefriend/pages/users/list.vue",
+    "chunkName": "pages/users/list",
+    "_name": "_d8c49eca"
+  },
+  {
+    "name": "users-messages-message",
+    "path": "/users/messages/:message?",
+    "component": "/Users/erdalyenigul/Desktop/index/personal/privatefriend/pages/users/messages/_message.vue",
+    "chunkName": "pages/users/messages/_message",
+    "_name": "_3f04be04"
+  },
+  {
+    "name": "users-photos-friendPhotos",
+    "path": "/users/photos/:friendPhotos?",
+    "component": "/Users/erdalyenigul/Desktop/index/personal/privatefriend/pages/users/photos/_friendPhotos.vue",
+    "chunkName": "pages/users/photos/_friendPhotos",
+    "_name": "_1ac0de8d"
+  },
+  {
+    "name": "users-friendID",
+    "path": "/users/:friendID?",
+    "component": "/Users/erdalyenigul/Desktop/index/personal/privatefriend/pages/users/_friendID.vue",
+    "chunkName": "pages/users/_friendID",
+    "_name": "_289466eb"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/erdalyenigul/Desktop/index/personal/privatefriend/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_204ec36c"
+  }
+]
