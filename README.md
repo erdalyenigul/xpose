@@ -1,4 +1,4 @@
-#### https://friendforfind.appspot.com
+#### https://xpose.vercel.app/
 
 #### Features
 * Creating a subscription with email activation confirmation from scratch.
@@ -8,4 +8,4 @@
 * List users.
 
 #### Technologies:
-VueJs, NuxtJs, Firebase, Google App Engine
+VueJs, NuxtJs, Firebase, Vercel Host
