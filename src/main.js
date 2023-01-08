@@ -13,12 +13,12 @@ import router from './router'
 Vue.config.productionTip = false
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD_igojw8cEEFIo9G1GBV-5SZdqWZyNWvo",
-  authDomain: "xposev2-080123.firebaseapp.com",
-  projectId: "xposev2-080123",
-  storageBucket: "xposev2-080123.appspot.com",
-  messagingSenderId: "871518624733",
-  appId: "1:871518624733:web:c55a003e165152d50db434"
+  apiKey: "AIzaSyCsXB-mROyUznWeCfg15W_rqvGUJmKS6AQ",
+  authDomain: "xposeus00.firebaseapp.com",
+  projectId: "xposeus00",
+  storageBucket: "xposeus00.appspot.com",
+  messagingSenderId: "250565650007",
+  appId: "1:250565650007:web:db6aad7983a0edd5d4e512"
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
@@ -27,7 +27,14 @@ const auth = firebase.auth();
 
 export { auth, db };
 
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app')
+
+let app;
+
+firebaseApp.auth().onAuthStateChanged(user => {
+    if (!app) {
+    app = new Vue({
+      router,
+      render: h => h(App)
+    }).$mount("#app");
+  }
+});

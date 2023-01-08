@@ -41,12 +41,17 @@ export default {
       userLogin: false,
     };
   },
+  computed: {
+    currentRouteName() {
+      return this.$route.name;
+    }
+  },
   methods: {
     checkUserLogin() {
       let self = this;
       firebase.auth().onAuthStateChanged(function (user) {
         if(user != null) {
-          self.$router.push('/user/list');
+          self.$router.push('UserList');
         } else {
           self.userLogin = true;
         }

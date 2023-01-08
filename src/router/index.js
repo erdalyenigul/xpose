@@ -2,6 +2,11 @@ import firebase from 'firebase/compat/app';
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+};
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -87,34 +92,11 @@ const router = new VueRouter({
   routes
 })
 
-// router.beforeEach((to, from, next) => {
-//   console.log('route name', to.name)
-//   const currentUser = firebase.auth().currentUser;
-//   console.log('currentUser', currentUser)
-
-//   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-//   console.log('requiresAuth', requiresAuth)
-
-//   if (!requiresAuth && !currentUser) next('/');
-//   else if (requiresAuth && currentUser) next('/user/list');
-//   else next();
-  
-// });
-
 router.beforeEach((to, from, next) => {
   const currentUser = firebase.auth().currentUser;
-
   const requireAuth = to.matched.some(record => record.meta.requireAuth);
-
-  if(requireAuth && !currentUser){
-      next({ name: 'Login'});
-  }
-  else if(!requireAuth && currentUser){
-      next({ name: 'UserList'}); 
-  }
-  else {
-      next();
-  }
-});
+  if(requireAuth && !currentUser) next({ name: 'Login'});
+  else next();
+})
 
 export default router

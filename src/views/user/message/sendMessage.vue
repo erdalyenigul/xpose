@@ -288,7 +288,7 @@ export default {
         });
 
         self.notify = true;
-        self.notifyMsg = 'Tüm mesajlar silindi';
+        self.notifyMsg = 'Messages Deleted';
         self.notifyIcon = 'check';
         setTimeout(() => {
           self.notify = false;

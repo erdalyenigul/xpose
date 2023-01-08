@@ -268,7 +268,7 @@ export default {
         }, { merge: true })
         .then(function() {
           self.notify = true;
-          self.notifyMsg = 'Profil fotoğrafı silindi';
+          self.notifyMsg = 'Photo deleted';
           self.notifyIcon = 'check';
           setTimeout(() => {
             self.notify = false;

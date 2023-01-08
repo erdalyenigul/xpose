@@ -32,7 +32,7 @@
         <div class="imgsLine">
           <div class="imgWrap" v-for="(photo, index) in accountPhotos" :key="index">
             <div class="imgContent">
-              <a class="removePhoto" @click="removePhoto(photo.name)">Sil</a>
+              <a class="removePhoto" @click="removePhoto(photo.name)">Delete</a>
               <img :src="photo.url" @click="accountPhotoBig(photo.url)">
             </div>
           </div>
