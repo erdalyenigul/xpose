@@ -2,7 +2,7 @@
   <div class="welcome">
     <div class="welcomeForm">
       <div class="formHead">Free New Subscription</div>
-      <form @submit.prevent="register">
+      <form @submit.prevent="register" novalidate>
         <span class="formW100">
           <span class="formW50"><input required type="text" placeholder="Name" v-model="account.name" /></span>
           <span class="formW50"><input required type="text" placeholder="Lastname" v-model="account.surname" /></span>
@@ -22,21 +22,21 @@
                 </div>
                 <div class="radio">
                   <label>
-                    <input required v-model="account.person.gender" value="Woman" type="radio" name="gender" /><i class="helper"></i> Woman
+                    <input required v-model="account.person.gender" value="Woman" type="radio" name="gender" /><i class="helper"></i> Female
                   </label>
                 </div>
               </div>
             </span>
             <span class="formW50">
-              <span class="inputHead">Your date of birth</span>
+              <span class="inputHead">Birthday</span>
               <div class="dateInput">
-                <datepicker></datepicker>
+                <datepicker format="d.MM.yyyy" v-model="account.person.birthday" placeholder="Select Date"></datepicker>
               </div>
             </span>
           </div>
         </span>
         <span class="formW100 passWrap">
-          <a class="showPassRegister" @click="showPass">Show password</a>
+          <a class="showPassRegister" @click="showPass"><i class="fa-solid fa-eye"></i></a>
           <span class="formW100">
             <span class="formW50"><input id="password" required type="password" placeholder="Password" v-model="account.password" /></span>
             <span class="formW50"><input id="rePassword" required type="password" placeholder="Password Confirm" v-model="passwordAgain" /></span>
@@ -59,7 +59,6 @@
 
 <script>
 import firebase from 'firebase/compat/app'
-
 import Datepicker from 'vuejs-datepicker';
 
 export default {
@@ -118,7 +117,6 @@ export default {
     register() {
       let birthdayLongDate = new Date(this.account.person.birthday);
       this.account.person.birthday = birthdayLongDate.toLocaleDateString("tr-TR");
-
       let getAgeFromtBirthday = this.account.person.birthday;
       let userBirthYear = getAgeFromtBirthday.split('.').reverse()[0];
       let currentDate = new Date();
@@ -160,13 +158,11 @@ export default {
           }).then(() => {
             self.$router.push('/account/profile');
           })
-          console.log('user kaydedildi');
         } else {
-          console.log('user kaydedilmedi');
+          console.log('user error');
         }
       });
     }
   }
 };
 </script>
-

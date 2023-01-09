@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
+import router from './router'
+
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 import 'firebase/compat/firestore'
@@ -7,8 +9,6 @@ import 'firebase/compat/storage'
 
 import ImageUploader from 'vue-image-upload-resize'
 Vue.use(ImageUploader);
-
-import router from './router'
 
 Vue.config.productionTip = false
 
@@ -24,12 +24,8 @@ const firebaseConfig = {
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 const auth = firebase.auth();
-
 export { auth, db };
-
-
 let app;
-
 firebaseApp.auth().onAuthStateChanged(user => {
     if (!app) {
     app = new Vue({

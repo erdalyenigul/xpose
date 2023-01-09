@@ -5,7 +5,7 @@
     </div>
     <div class="modalWrap" v-if="accountPhotoBigModal">
       <div class="modalContent">
-        <a class="modalCloseBtn" @click="accountPhotoBigModal = false ">close</a>
+        <a class="modalCloseBtn" @click="accountPhotoBigModal = false "><i class="fa-solid fa-xmark"></i></a>
         <div class="showBigPPModal">
           <img :src="accountPhotoBigUrl">
         </div>

@@ -3,7 +3,7 @@
     <div class="profileWrap" v-if="setData">
       <div class="modalWrap" v-if="showBigPPModal">
         <div class="modalContent">
-          <a class="modalCloseBtn" @click="showBigPPModal = false ">Close</a>
+          <a class="modalCloseBtn" @click="showBigPPModal = false "><i class="fa-solid fa-xmark"></i></a>
           <div class="showBigPPModal">
             <img :src="account.account.pPhoto" :alt="account.name">
           </div>
@@ -17,10 +17,10 @@
           <li class="fullName">{{ account.account.name }} {{ account.account.surname }}</li>
           <li class="complateProfileBtn">
             <router-link v-if="!admin" :to="{ name: 'SendMessage', params: {accountId: account.uid} }" class="primaryBtn messageBtn">
-              Mesaj gönder
+              Send Message <i class="fa-solid fa-message"></i>
             </router-link>
             <router-link :to="{ name: 'friendPhotos', params: {friendPhotos: account.uid} }" class="primaryBtn messageBtn">
-              Fotoğraflar
+              Photos <i class="fa-solid fa-image"></i>
             </router-link>
           </li>
         </ul>

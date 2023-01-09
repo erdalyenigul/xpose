@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <div class="errorMsg emailVerified" v-if="email_verified">
-      Your e-mail address has not been confirmed, please go to your e-mail and confirm. <br> Refresh the page after confirming.
+      Your e-mail address has not been confirmed, please go to your e-mail and confirm.
     </div>
     <div class="modalWrap" v-if="showBigPPModal">
       <div class="modalContent">
-        <a class="modalCloseBtn" @click="showBigPPModal = false ">kapat</a>
+        <a class="modalCloseBtn" @click="showBigPPModal = false"><i class="fa-solid fa-xmark"></i></a>
         <div class="showBigPPModal">
           <img :src="account.pPhoto" :alt="account.name">
         </div>

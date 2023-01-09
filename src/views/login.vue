@@ -1,8 +1,8 @@
 <template>
   <div class="welcome" v-if="userLogin">
     <div class="welcomeLine">
+      <span>START MEETING NEW PEOPLE!</span>
       <span>MAKE THE FIRST MOVE</span>
-      <span>Start meeting new people!</span>
     </div>
     <div class="welcomeForm">
       <div class="formHead">
@@ -11,7 +11,7 @@
       <form @submit.prevent="login">
         <span class="formW100"><input type="email" placeholder="E-Mail" v-model="email" /></span>
         <span class="formW100">
-          <a class="showPassLogin" @click="showPass">Show</a>
+          <a class="showPassLogin" @click="showPass"><i class="fa-solid fa-eye"></i></a>
           <input id="password" type="password" placeholder="Password" v-model="password" />
           </span>
         <div v-if="errorShow" class="errorMsg">{{ errorMsg }}</div>
@@ -51,7 +51,7 @@ export default {
       let self = this;
       firebase.auth().onAuthStateChanged(function (user) {
         if(user != null) {
-          self.$router.push('UserList');
+          self.$router.push('/user/list');
         } else {
           self.userLogin = true;
         }

@@ -4,7 +4,7 @@
     <div class="profileWrap" v-if="setData && !admin">
       <div class="modalWrap" v-if="deleteModalVisible">
         <div class="modalContent">
-          <a class="modalCloseBtn" @click="deleteModalVisible = false ">Close</a>
+          <a class="modalCloseBtn" @click="deleteModalVisible = false "><i class="fa-solid fa-xmark"></i></a>
           <div class="modalHead">
             <span class="mHeadline">All messages will be deleted, do you confirm?</span>
           </div>
@@ -18,7 +18,7 @@
       </div>
       <div class="modalWrap" v-if="showBigPPModal">
         <div class="modalContent">
-          <a class="modalCloseBtn" @click="showBigPPModal = false ">Close</a>
+          <a class="modalCloseBtn" @click="showBigPPModal = false "><i class="fa-solid fa-xmark"></i></a>
           <div class="showBigPPModal">
             <img :src="account.account.pPhoto" :alt="account.name">
           </div>
@@ -35,13 +35,10 @@
           <li class="fullName">{{ account.account.name }} {{ account.account.surname }}</li>
           <li class="complateProfileBtn friendMessage">
             <router-link :to="{ name: 'friendID', params: {friendID: account.uid} }" class="primaryBtn messageBtn">
-              About Profile
-            </router-link>
-            <router-link :to="{ name: 'friendPhotos', params: {friendPhotos: account.uid} }" class="primaryBtn messageBtn">
-              Photos
+              About <i class="fa-solid fa-address-card"></i>
             </router-link>
             <span class="userPageMenu">
-              <a class="userPageMenuBtn">Menu</a>
+              <a class="userPageMenuBtn"><i class="fa-solid fa-bars"></i></a>
               <ul class="subList">
                 <li><a @click="deleteModal">Delete messages</a></li>
               </ul>

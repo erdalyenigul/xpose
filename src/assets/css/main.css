@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700,900&display=swap&subset=latin-ext');
-@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;500;600&display=swap');
+@import 'https://fonts.googleapis.com/css?family=Nunito:400,700,900&display=swap&subset=latin-ext';
+@import 'https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;500;600&display=swap';
 strong {
   font-weight: 600;
 }
@@ -50,7 +50,7 @@ body {
 .button:nth-last-child(1), button:nth-last-child(1) {
   margin-right: 0;
 }
-.button svg, button svg {
+.button i, button i {
   width: 20px;
   margin-left: 10px;
 }
@@ -110,9 +110,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.modalWrap .modalContent .modalCloseBtn svg {
-  width: 20px;
   color: #fff;
 }
 .modalWrap .modalContent .modalHead {
@@ -167,7 +164,7 @@ body {
 .containerAll header {
   float: left;
   width: 100%;
-  background-color: #0b4aa0;
+  background-color: #0f233d;
   height: 60px;
   display: flex;
   align-items: center;
@@ -236,7 +233,7 @@ body {
   align-items: center;
   cursor: pointer;
 }
-.containerAll header .headRight .headLinks a svg {
+.containerAll header .headRight .headLinks a i {
   width: 7px;
   margin-right: 5px;
 }
@@ -288,11 +285,10 @@ body {
 .containerAll header .sideMenuOpenBtn {
   float: left;
   cursor: pointer;
-  height: 34px;
   display: none;
 }
-.containerAll header .sideMenuOpenBtn svg {
-  width: 30px;
+.containerAll header .sideMenuOpenBtn i {
+  font-size: 22px;
   color: #fff;
 }
 .containerAll header .newMessageIcon {
@@ -303,7 +299,7 @@ body {
   margin-right: 20px;
   display: none;
 }
-.containerAll header .newMessageIcon svg {
+.containerAll header .newMessageIcon i {
   width: 30px;
   color: #fff;
   margin-top: 3px;
@@ -337,12 +333,12 @@ body {
 .containerAll header .sideMenu .sideMenuCloseBtn {
   position: absolute;
   right: 30px;
-  top: 10px;
+  top: 18px;
   cursor: pointer;
   z-index: 3;
 }
-.containerAll header .sideMenu .sideMenuCloseBtn svg {
-  width: 25px;
+.containerAll header .sideMenu .sideMenuCloseBtn i {
+  font-size: 22px;
   color: #fff;
 }
 .containerAll header .sideMenu .sideMenuContent {
@@ -369,7 +365,7 @@ body {
   border-bottom: 1px solid #203f69;
   padding: 30px 0;
 }
-.containerAll header .sideMenu .sideMenuContent ul li button svg {
+.containerAll header .sideMenu .sideMenuContent ul li button i {
   width: 5px;
   color: #fff;
   margin-right: 10px;
@@ -394,7 +390,7 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #0b4aa0;
+  border-bottom: 1px solid #0f233d;
   padding-bottom: 20px;
 }
 .containerAll header .sideMenu .sideMenuContent .accountInfo a img {
@@ -445,7 +441,7 @@ body {
   display: flex;
   align-items: center;
 }
-.containerAll .headline svg {
+.containerAll .headline i {
   width: 25px;
   margin-right: 10px;
 }
@@ -488,7 +484,7 @@ body {
   display: flex;
   align-items: center;
 }
-.containerAll .welcome .welcomeForm .formHead svg {
+.containerAll .welcome .welcomeForm .formHead i {
   width: 20px;
   margin-right: 10px;
 }
@@ -511,15 +507,16 @@ body {
 }
 .containerAll .welcome .welcomeForm .formW100 .showPassRegister {
   position: absolute;
-  left: 0;
-  bottom: -13px;
+  left: 185px;
+  top: 12px;
+  z-index: 2;
   cursor: pointer;
   color: #222;
   display: flex;
   align-items: center;
   font-size: 14px;
 }
-.containerAll .welcome .welcomeForm .formW100 .showPassRegister svg {
+.containerAll .welcome .welcomeForm .formW100 .showPassRegister i {
   width: 20px;
   color: #696969;
   margin-right: 5px;
@@ -527,14 +524,14 @@ body {
 .containerAll .welcome .welcomeForm .formW100 .showPassLogin {
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: 12px;
   cursor: pointer;
   color: #222;
   display: flex;
   align-items: center;
   font-size: 14px;
 }
-.containerAll .welcome .welcomeForm .formW100 .showPassLogin svg {
+.containerAll .welcome .welcomeForm .formW100 .showPassLogin i {
   width: 20px;
   color: #696969;
   margin-right: 5px;
@@ -565,7 +562,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 50px;
+  margin: 50px 0;
   max-width: 500px;
   z-index: 2;
 }
@@ -589,8 +586,8 @@ body {
   text-align: center;
 }
 .containerAll .welcome .welcomeBottom .bottomBtn:hover {
-  background-color: #0b4aa0;
-  border: 1px solid #0b4aa0;
+  background-color: #0f233d;
+  border: 1px solid #0f233d;
 }
 .containerAll .welcome .welcomeLine {
   float: left;
@@ -691,11 +688,11 @@ body {
   align-items: center;
   color: #fff;
   border-radius: 5px;
-  background-color: #0b4aa0;
+  background-color: #0f233d;
   margin-right: 10px;
   height: 34px;
 }
-.containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn a svg {
+.containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn a i {
   width: 20px;
   margin-left: 20px;
 }
@@ -716,7 +713,7 @@ body {
   margin-right: 0;
   height: 34px;
 }
-.containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu .userPageMenuBtn svg {
+.containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu .userPageMenuBtn i {
   width: 20px;
   margin-left: 0;
 }
@@ -735,7 +732,7 @@ body {
   width: 100%;
 }
 .containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn .userPageMenu .subList li a {
-  font-size: 14px;
+  font-size: 13px;
   margin-right: 0;
   cursor: pointer;
   width: 100%;
@@ -744,7 +741,7 @@ body {
   display: flex;
 }
 .containerAll .profileWrap .profileInfoHead ul li.complateProfileBtn.friendMessage a {
-  background-color: #0b4aa0;
+  background-color: #0f233d;
 }
 .containerAll .profileWrap .profileInfoHead ul li .removePphoto {
   cursor: pointer;
@@ -769,7 +766,7 @@ body {
   justify-content: center;
   text-decoration: underline;
 }
-.containerAll .profileWrap .firstInfoPhoto .addBioBtn svg {
+.containerAll .profileWrap .firstInfoPhoto .addBioBtn i {
   width: 20px;
   margin-right: 10px;
 }
@@ -885,7 +882,7 @@ body {
   color: #fff;
   padding-right: 10px;
 }
-.containerAll .notify svg {
+.containerAll .notify i {
   width: 20px;
   color: #fff;
 }
@@ -905,7 +902,7 @@ body {
   float: left;
   width: 150px;
 }
-.containerAll .bottomBtns .saveBtn svg {
+.containerAll .bottomBtns .saveBtn i {
   width: 15px;
   margin-left: 20px;
 }
@@ -915,7 +912,7 @@ body {
   justify-content: space-between;
   font-size: 18px;
 }
-.containerAll .bottomBtns .backToProfile svg {
+.containerAll .bottomBtns .backToProfile i {
   width: 15px;
   margin-left: 20px;
 }
@@ -989,7 +986,7 @@ body {
 .containerAll .messageBtn {
   width: 200px !important;
 }
-.containerAll .messageBtn svg {
+.containerAll .messageBtn i {
   width: 15px;
   color: #fff;
 }
@@ -1082,7 +1079,7 @@ body {
   font-weight: 600;
   border-radius: 50px;
 }
-.containerAll .messagesWrap .sendMessageLine .sendMessageBtn svg {
+.containerAll .messagesWrap .sendMessageLine .sendMessageBtn i {
   width: 15px;
   color: #fff;
 }
@@ -1223,7 +1220,7 @@ body {
   max-width: 300px;
   border-radius: 10px;
 }
-.containerAll .uploadAccountPhotoWrap .uploadPhotosWrap svg {
+.containerAll .uploadAccountPhotoWrap .uploadPhotosWrap i {
   width: 20px;
 }
 .containerAll .vdp-datepicker__calendar {
@@ -1353,7 +1350,7 @@ body {
     align-items: center;
     justify-content: center;
   }
-  .containerAll .profileWrap .firstInfoPhoto .addBioBtn svg {
+  .containerAll .profileWrap .firstInfoPhoto .addBioBtn i {
     width: 50px;
   }
   .containerAll .bottomBtns .saveBtn {
@@ -1584,7 +1581,7 @@ body {
     font-weight: 600;
     bottom: -16px;
   }
-  .containerAll .welcome .welcomeForm .formW100 .showPassRegister svg {
+  .containerAll .welcome .welcomeForm .formW100 .showPassRegister i {
     color: #fff;
   }
   .containerAll .welcome .welcomeForm .passWrap {

@@ -30,9 +30,9 @@
           
           <span class="counter">{{ notificationList.length }}</span>
         </a>
-        <a class="sideMenuOpenBtn" @click="sideMenuShow = true">menu</a>
+        <a class="sideMenuOpenBtn" @click="sideMenuShow = true"><i class="fa-solid fa-bars"></i></a>
         <div class="sideMenu" v-if="sideMenuShow">
-          <a class="sideMenuCloseBtn" @click="sideMenuShow = false">menu</a>
+          <a class="sideMenuCloseBtn" @click="sideMenuShow = false"><i class="fa-solid fa-bars"></i></a>
           <div class="sideMenuContent">
             <ul>
               <li class="accountInfo">
@@ -42,7 +42,7 @@
                   <span>{{ account.name }} {{ account.surname }}</span>
                 </a>
               </li>
-              <li><button class="button primaryBtn" @click="$router.push('/users/list'), sideMenuShow = false">Members</button></li>
+              <li><button class="button primaryBtn" @click="$router.push('/user/list'), sideMenuShow = false">Members</button></li>
               <li><button class="button primaryBtn" @click="$router.push('/account/profile'), sideMenuShow = false">Profile</button></li>
               <li class="messageInfo"><button class="button primaryBtn" @click="$router.push('/account/myMessages'), sideMenuShow = false">Messages <span class="notifyCounter" v-if="notificationList.length > 0">{{ notificationList.length }} New</span></button></li>
               <li><button class="button primaryBtn" @click="$router.push('/account/photos'), sideMenuShow = false">Photos</button></li>

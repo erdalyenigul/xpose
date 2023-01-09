@@ -2,7 +2,7 @@
   <div class="container">
     <div class="modalWrap" v-if="showBigPPModal">
       <div class="modalContent">
-        <a class="modalCloseBtn" @click="showBigPPModal = false ">kapat</a>
+        <a class="modalCloseBtn" @click="showBigPPModal = false "><i class="fa-solid fa-xmark"></i></a>
         <div class="showBigPPModal">
           <img :src="account.pPhoto" :alt="account.name">
         </div>
