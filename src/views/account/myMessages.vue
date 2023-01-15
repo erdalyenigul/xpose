@@ -34,6 +34,7 @@ export default {
   },
   methods: {
     async userGetAccount(){
+      console.log('aa')
       let self = this;
       await firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -70,6 +71,7 @@ export default {
       });
     },
     checkMessages() {
+      console.log('bb')
       let self = this;
       if(self.chatList){
         var item = {};

@@ -26,7 +26,7 @@
           </a>
         </div>
 
-        <a class="newMessageIcon" v-if="notificationList.length > 0" @click="$router.push('/account/myMessages')">
+        <a class="newMessageIcon" v-if="notificationList.length > 0" @click="$router.push('/account/my-messages')">
           
           <span class="counter">{{ notificationList.length }}</span>
         </a>
@@ -44,7 +44,7 @@
               </li>
               <li><button class="button primaryBtn" @click="$router.push('/user/list'), sideMenuShow = false">Members</button></li>
               <li><button class="button primaryBtn" @click="$router.push('/account/profile'), sideMenuShow = false">Profile</button></li>
-              <li class="messageInfo"><button class="button primaryBtn" @click="$router.push('/account/myMessages'), sideMenuShow = false">Messages <span class="notifyCounter" v-if="notificationList.length > 0">{{ notificationList.length }} New</span></button></li>
+              <li class="messageInfo"><button class="button primaryBtn" @click="$router.push('/account/my-messages'), sideMenuShow = false">Messages <span class="notifyCounter" v-if="notificationList.length > 0">{{ notificationList.length }} New</span></button></li>
               <li><button class="button primaryBtn" @click="$router.push('/account/photos'), sideMenuShow = false">Photos</button></li>
               <li><button class="button primaryBtn" @click="logout">Sign Out</button></li>
             </ul>
