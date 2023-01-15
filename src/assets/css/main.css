@@ -294,30 +294,25 @@ body {
 .containerAll header .newMessageIcon {
   float: left;
   cursor: pointer;
-  height: 34px;
+  height: 23px;
   position: relative;
   margin-right: 20px;
   display: none;
 }
 .containerAll header .newMessageIcon i {
-  width: 30px;
+  font-size: 19px;
   color: #fff;
-  margin-top: 3px;
 }
 .containerAll header .newMessageIcon .counter {
-  position: absolute;
-  left: 24px;
-  top: -3px;
   font-size: 13px;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 15px;
-  background-color: #fa3e3e;
-  border-radius: 2px;
+  background: rgba(255, 0, 0, 0.8);
+  border-radius: 6px;
   color: #fff;
-  padding: 2px 3px 0;
+  padding: 0 5px;
   height: 25px;
 }
 .containerAll header .sideMenu {
@@ -1103,9 +1098,15 @@ body {
   height: 100px;
   border-radius: 50%;
   overflow: hidden;
+  display: flex;
 }
 .containerAll .chatWithWho .chatCard .ccImg img {
   width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  cursor: pointer;
 }
 .containerAll .chatWithWho .chatCard .ccInfo {
   float: left;
@@ -1311,7 +1312,8 @@ body {
     display: block;
   }
   .containerAll header .newMessageIcon {
-    display: block;
+    display: flex;
+    align-items: center;
   }
   .containerAll header .headRight .headLinks {
     display: none;

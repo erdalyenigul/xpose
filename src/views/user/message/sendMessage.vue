@@ -152,93 +152,95 @@ export default {
       }
     },
     async sendMessage() {
-      var today = new Date();
-      var date = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
-      var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-      var dateTime = date + ' ' + time;
+      if(this.messageInput.length>0){
+        var today = new Date();
+        var date = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date + ' ' + time;
 
-      var result = today.toLocaleString("tr-TR", { // you can skip the first argument
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-      });
-      this.orderTime = result.split('.').join('').split(':').join('').split(' ').join('');
-      
-      /*** sender account settings  ***/
-      //save msg to sender account database
-      let self = this;
-      await firebase.firestore().collection("profiles").doc(self.authUser.uid).collection(self.friendUserID).add({
-        time: dateTime,
-        message: self.messageInput,
-        author: self.userDisplayName,
-        orderTime: self.orderTime
-      });
-
-      //get sender account chatList
-      var chatListSender = [];
-      await firebase.firestore().collection("profiles").where("uid", "==", self.authUser.uid).get()
-      .then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-          chatListSender = doc.data().chatList;
+        var result = today.toLocaleString("tr-TR", { // you can skip the first argument
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
         });
-      });
-      if (Object.values(chatListSender).includes(this.friendUserID)) {
-      } else {
-        var item = {};
-        item = this.friendUserID;
-        chatListSender.push(item);
-      }
-
-      //set sender account chatList
-      firebase.firestore().collection("profiles").doc(self.authUser.uid).set({
-        chatList: chatListSender
-      }, { merge: true })
-
-      /*** recivier account settings  ***/
-      //save msg to recivier account database
-      await firebase.firestore().collection("profiles").doc(self.friendUserID).collection(self.authUser.uid).add({
-        time: dateTime,
-        message: self.messageInput,
-        author: self.userDisplayName,
-        orderTime: self.orderTime,
-      })
-
-      //get recivier account chatList & get recivier account notificationList
-      var chatListRecivier = [];
-      var notificationList = [];
-      await firebase.firestore().collection("profiles").where("uid", "==", self.friendUserID).get()
-      .then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-          chatListRecivier = doc.data().chatList;
-          notificationList = doc.data().notificationList;
+        this.orderTime = result.split('.').join('').split(':').join('').split(' ').join('');
+        
+        /*** sender account settings  ***/
+        //save msg to sender account database
+        let self = this;
+        await firebase.firestore().collection("profiles").doc(self.authUser.uid).collection(self.friendUserID).add({
+          time: dateTime,
+          message: self.messageInput,
+          author: self.userDisplayName,
+          orderTime: self.orderTime
         });
-      });
 
-      if (Object.values(chatListRecivier).includes(this.authUser.uid)) {
-      } else {
-        var item = {};
-        item = this.authUser.uid;
-        chatListRecivier.push(item);
-      }
-      if (Object.values(notificationList).includes(this.authUser.uid)) {
-      } else {
-        var item = {};
-        item = this.authUser.uid;
-        notificationList.push(item);
-      }
+        //get sender account chatList
+        var chatListSender = [];
+        await firebase.firestore().collection("profiles").where("uid", "==", self.authUser.uid).get()
+        .then(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            chatListSender = doc.data().chatList;
+          });
+        });
+        if (Object.values(chatListSender).includes(this.friendUserID)) {
+        } else {
+          var item = {};
+          item = this.friendUserID;
+          chatListSender.push(item);
+        }
 
-      //set recivier account chatList & set recivier account notificationList
-      firebase.firestore().collection("profiles").doc(self.friendUserID).set({
-        chatList: chatListRecivier,
-        notificationList: notificationList
-      }, { merge: true })
-  
-      self.messageInput = '';
-      self.scrollToBottom();
-      self.getMessages();
+        //set sender account chatList
+        firebase.firestore().collection("profiles").doc(self.authUser.uid).set({
+          chatList: chatListSender
+        }, { merge: true })
+
+        /*** recivier account settings  ***/
+        //save msg to recivier account database
+        await firebase.firestore().collection("profiles").doc(self.friendUserID).collection(self.authUser.uid).add({
+          time: dateTime,
+          message: self.messageInput,
+          author: self.userDisplayName,
+          orderTime: self.orderTime,
+        })
+
+        //get recivier account chatList & get recivier account notificationList
+        var chatListRecivier = [];
+        var notificationList = [];
+        await firebase.firestore().collection("profiles").where("uid", "==", self.friendUserID).get()
+        .then(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            chatListRecivier = doc.data().chatList;
+            notificationList = doc.data().notificationList;
+          });
+        });
+
+        if (Object.values(chatListRecivier).includes(this.authUser.uid)) {
+        } else {
+          var item = {};
+          item = this.authUser.uid;
+          chatListRecivier.push(item);
+        }
+        if (Object.values(notificationList).includes(this.authUser.uid)) {
+        } else {
+          var item = {};
+          item = this.authUser.uid;
+          notificationList.push(item);
+        }
+
+        //set recivier account chatList & set recivier account notificationList
+        firebase.firestore().collection("profiles").doc(self.friendUserID).set({
+          chatList: chatListRecivier,
+          notificationList: notificationList
+        }, { merge: true })
+    
+        self.messageInput = '';
+        self.scrollToBottom();
+        self.getMessages();
+      }
     },
     async getMessages() {   
       let self = this;

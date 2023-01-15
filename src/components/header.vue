@@ -27,7 +27,7 @@
         </div>
 
         <a class="newMessageIcon" v-if="notificationList.length > 0" @click="$router.push('/account/my-messages')">
-          
+          <i class="fa-regular fa-comments"></i>
           <span class="counter">{{ notificationList.length }}</span>
         </a>
         <a class="sideMenuOpenBtn" @click="sideMenuShow = true"><i class="fa-solid fa-bars"></i></a>
