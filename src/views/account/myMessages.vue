@@ -4,14 +4,14 @@
       <div class="headline">Message box</div>
       <div v-if="!chatList">Your inbox is empty</div>
       <div class="chatCard" v-for="(person, index) in chatWithWho" :key="index">
-        <router-link :to="{ name: 'SendMessage', params: { accountId: person.friendId} }">
+        <div class="user">
           <div class="ccImg"><img :src="person.pPhoto" alt=""></div>
           <div class="ccInfo">
             <span>{{ person.name }} {{ person.surname }}</span>
             <span class="newMessage" v-if="person.notify">New message</span>
-            <button class="button primaryBtn">Send message</button>
+            <router-link class="button primaryBtn" :to="{ name: 'SendMessage', params: { accountId: person.friendId} }">Send message</router-link>
           </div>
-        </router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -39,8 +39,6 @@ export default {
         if (user) {
           if(user.uid == localStorage.getItem('uid')) {
             this.admin = true;
-          } else {
-            console.log('!admin')
           }
           firebase.firestore().collection("profiles").where("uid", "==", user.uid).get()
           .then(querySnapshot => {
@@ -54,34 +52,32 @@ export default {
         }
       });
     },
+    pushChatWithWho(chatId, newMsg) {
+      let self = this;
+      var item = {};
+      firebase.firestore().collection("profiles").where("uid", "==", chatId).onSnapshot((querySnapshot) => {
+        querySnapshot.forEach(doc => {
+          item = {};
+          item.name = doc.data().account.name;
+          item.surname = doc.data().account.surname;
+          item.pPhoto = doc.data().account.pPhoto;
+          item.friendId = doc.data().uid;
+          if(newMsg){
+            item.notify = newMsg;
+          }
+          self.chatWithWho.push(item);
+        });
+      });
+    },
     checkMessages() {
       let self = this;
       if(self.chatList){
         var item = {};
         for(var i = 0; i < self.chatList.length; i++) {
           if ( Object.values(self.notificationList).includes(self.chatList[i]) ) {
-            firebase.firestore().collection("profiles").where("uid", "==", self.chatList[i]).onSnapshot((querySnapshot) => {
-              querySnapshot.forEach(doc => {
-                item = {};
-                item.name = doc.data().account.name;
-                item.surname = doc.data().account.surname;
-                item.pPhoto = doc.data().account.pPhoto;
-                item.friendId = doc.data().uid;
-                item.notify = 'yeni mesaj';
-                self.chatWithWho.push(item);
-              });
-            });
+            this.pushChatWithWho(self.chatList[i], true);
           } else {
-            firebase.firestore().collection("profiles").where("uid", "==", self.chatList[i]).onSnapshot((querySnapshot) => {
-              querySnapshot.forEach(doc => {
-                item = {};
-                item.name = doc.data().account.name;
-                item.surname = doc.data().account.surname;
-                item.pPhoto = doc.data().account.pPhoto;
-                item.friendId = doc.data().uid;
-                self.chatWithWho.push(item);
-              });
-            });
+            this.pushChatWithWho(self.chatList[i]);
           }
         }
       }

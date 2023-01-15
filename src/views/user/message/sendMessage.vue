@@ -40,7 +40,7 @@
             <span class="userPageMenu">
               <a class="userPageMenuBtn"><i class="fa-solid fa-bars"></i></a>
               <ul class="subList">
-                <li><a @click="deleteModal">Delete messages</a></li>
+                <li><a @click="deleteModalVisible = true">Delete messages</a></li>
               </ul>
             </span>
           </li>

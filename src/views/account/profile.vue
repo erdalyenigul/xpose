@@ -145,9 +145,6 @@ export default {
             firebase.storage().ref('profiles/' + self.userID).getDownloadURL()
             .then(function(url) {
               self.ppImage = url;
-            })
-            .catch(function(error) {
-              console.log(error.message);
             });
           }
         }

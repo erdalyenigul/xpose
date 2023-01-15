@@ -155,8 +155,8 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
   .profileWrap{float:left; width:100%;
     .headline{float:left; width:100%; margin-bottom:20px; font-weight:600; font-size:20px;}
     .profileInfoHead{float:left; width:100%; margin-bottom:30px;
-      .profilPhoto{width:250px; height:250px; overflow:hidden; border-radius:50%; background-color:#222; border:2px solid #fff; display:flex; align-items:center; justify-content:center; flex-direction: column; position:relative; float:left;
-        img{width:100%; cursor:pointer;}
+      .profilPhoto{width:250px; height:250px; overflow:hidden; border-radius:50%; background-color:#222; border:2px solid #fff; display:flex; position:relative; float:left;
+        img{width:100%; max-width:100%; max-height:100%; object-fit:cover; cursor:pointer;}
       }
       ul{float:left; width:calc(100% - 250px); padding-left:20px; height: 250px; display: flex; justify-content: center; flex-direction: column;
         li{float:left; width:100%; font-size:16px; margin-bottom:10px; display:flex;
@@ -169,7 +169,7 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
               &:hover{background-color:$linkColorHover;}
             }
             .userPageMenu{position:relative;
-              .userPageMenuBtn{width:35px; padding:6px; justify-content: center; cursor: pointer; margin-right:0; height:34px;
+              .userPageMenuBtn{width:35px; justify-content: center; cursor: pointer; margin-right:0; height:34px;
                 i{width:20px; margin-left: 0;}
               }
               .subList{position: absolute; top: 34px; right: 0; background-color: #fff; width: 150px; padding:10px 0; height: auto; display:none;
@@ -273,7 +273,7 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
   }
   .chatWithWho{float:left; width:100%;
     .chatCard{float:left; width:50%; padding:20px 0;
-      a{float:left; width:100%; color:#222;}
+      .user{float:left; width:100%; color:#222;}
       .ccImg{float:left; width:100px; height:100px; border-radius:50%; overflow:hidden;
         img{width:100%;}
       }
@@ -324,7 +324,9 @@ body{font-family: $fontStack; font-weight: 400; line-height: 1.5; color:$color1;
   }
   .img-preview{float:left; width:100%; margin-bottom:10px;}
   #fileInput{display:none;}
-  .imageUploaderBtn{height:34px; margin-right:10px; margin-bottom:10px;}
+  .imageUploaderBtn{height:34px; margin-right:10px; margin-bottom:10px;
+    .upload-caption{display: flex; align-items: center; justify-content: space-between; width: 100%;}
+  }
   .imageUploaderWrap{
     img{width:100%; max-width:400px;}
   }

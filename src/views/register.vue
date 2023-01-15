@@ -158,8 +158,6 @@ export default {
           }).then(() => {
             self.$router.push('/account/profile');
           })
-        } else {
-          console.log('user error');
         }
       });
     }

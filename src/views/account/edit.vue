@@ -158,15 +158,12 @@ export default {
     async userGetAccount(){
       let self = this;
       await firebase.auth().onAuthStateChanged(user => {
-        console.log(user)
         if (user) {
           self.userID = user.uid;
           if(user.emailVerified) {
             self.email_verified = false;
             firebase.firestore().collection("profiles").where("uid", "==", self.userID).get()
             .then(querySnapshot => {
-              console.log('querySnapshot')
-              console.log(querySnapshot)
               querySnapshot.forEach(doc => {
                 self.account = doc.data().account;
               });
@@ -177,9 +174,6 @@ export default {
             firebase.storage().ref('profiles/' + self.userID).getDownloadURL()
             .then(function(url) {
               self.ppImage = url;
-            })
-            .catch(function(error) {
-              console.log(error.message);
             });
           } else {
             this.email_verified = true;
@@ -199,9 +193,6 @@ export default {
           setTimeout(() => {
             self.notify = false;
           }, 5000);
-        })
-        .catch(function(error) {
-          console.error("Error writing document: ", error);
         });
     },
     setImage(blob) {
@@ -212,8 +203,6 @@ export default {
     },
     async updatePP() {
       var self = this;
-      console.log('self.userID')
-      console.log(self.userID)
 
       let storageRef = firebase.storage().ref('profiles/' + self.userID);
       if(storageRef){
@@ -234,22 +223,13 @@ export default {
           .then(function() {
             self.loading = false;
             self.notify = true;
-            self.notifyMsg = 'Profil fotoğrafı yüklendi';
+            self.notifyMsg = 'Photo uploaded successfully.';
             self.notifyIcon = 'check';
             setTimeout(() => {
               self.notify = false;
             }, 5000);
-          })
-          .catch(function(error) {
-            console.error("Error writing document: ", error);
           });
-
-        })
-        .catch(function(error) {
-          console.log(error.message);
         });
-      },error => {
-        console.log(error.message);
       });
     },
     showBigPP() {
@@ -273,13 +253,7 @@ export default {
           setTimeout(() => {
             self.notify = false;
           }, 5000);
-        }).catch(function(error) {
-          console.log(error)
         });
-        
-        
-      }).catch(function(error) {
-        console.log(error)
       });
     }
   }
